@@ -1,0 +1,10 @@
+{
+  "Brands":
+  [
+   { "brandId": "1", "brandName": "Opel"},
+   { "brandId": "2", "brandName": "Bmw"},
+   { "brandId": "3", "brandName": "Mercedes"},
+   { "brandId": "4", "brandName": "Renault"},
+   { "brandId": "5", "brandName": "Volvo"}
+  ]
+}

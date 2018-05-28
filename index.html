@@ -1,0 +1,61 @@
+<HTML>
+
+ <head>
+    <title> Moving elements </title>
+    <meta charset = "utf-8" />
+	 <script type="text/JavaScript" src="jquery.min.js"></script>
+    <script type = "text/javascript"  src = "mover.js" >
+    </script>
+	<script>
+         // isClicked function definition
+		var clicked = false;
+         function isClicked(e){
+           clicked=true;
+         }
+      </script>
+	  
+    <script>
+		var moving= false;
+		window.onmousedown = function(e) {
+           // If is not clicked
+           if(!clicked){
+           moving = true;
+		}
+           else {
+              // Stop propagation of mousedown event to prevent moving the combobox.
+             e.stopPropagation();}
+         }
+      window.onmouseup= function() { moving=false; }
+      window.onmousemove= function(e) {
+         if (moving)
+		 { 
+			dom = document.getElementById('mySelect').style;
+			moveIt('mySelect', e.clientY, e.clientX);
+		 }
+      }
+
+   </script>
+  </head>
+
+<BODY>
+ 
+<select id="mySelect" style="position: absolute" onmousedown="isClicked()"> </script>
+<SCRIPT LANGUAGE="JavaScript">
+
+	var tbody = document.getElementById('mySelect')
+ 	
+	$.getJSON("brands.json",function(data) {
+		for(var i = 0 ;i < data.Brands.length ; ++i)
+		{
+			var option = document.createElement("OPTION")
+			option.text= data.Brands[i].brandName
+			option.value= data.Brands[i].brandId
+			tbody.options.add(option)
+		}
+	});
+
+ </script>
+</form>
+ 
+</BODY>
+</HTML>
